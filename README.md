@@ -16,5 +16,9 @@ This script requires Python 3, and the packages urllib, Beautiful Soup, and wget
 
 This package also requires the `convert` command from [ImageMagick](https://www.imagemagick.org/)
 
+If you're facing a :
+ * memory issues, go see [this github thread](https://github.com/ImageMagick/ImageMagick/issues/396);
+ * authorization issue, go see this [askubuntu thread](https://askubuntu.com/questions/1081895/trouble-with-batch-conversion-of-png-to-pdf-using-convert)
+
 ## Credits
 This script was inspired and is based on the Ruby script from pietrop: https://github.com/pietrop/issuu.com-downloader as well as dkl3's original python script: https://github.com/dkl3/py-issuu-scrape
