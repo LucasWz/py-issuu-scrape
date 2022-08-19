@@ -3,10 +3,11 @@ from modules.download import download_image
 from modules.helpers import clean_temp_folder, save_metadata, save_url
 from modules.scrape import find_image_url, find_metadata, find_title, get_soup
 from modules.user_inputs import get_page_count, get_url
+from modules.progress_bar import progress_bar
 import logging
 
 logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
+logger.setLevel(logging.DEBUG)
 
 
 def main() -> None:
@@ -27,7 +28,9 @@ def main() -> None:
     metadata_string = "\n".join([f"'{k}':'{v}'" for k, v in metadata.items()])
     logging.info("Metadata saved:\n{}".format(metadata_string))
 
-    for page in range(1, page_count + 1):
+    for page in progress_bar(
+        range(1, page_count + 1), prefix="Download pages", suffix="complete"
+    ):
 
         img_url = find_image_url(soup, page)
         logger.info("Page {}: {}".format(page, img_url))
