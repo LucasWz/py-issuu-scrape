@@ -1,24 +1,51 @@
-# Issuu Scraper (Python)
+# Issuu : from reader Iframe to PDF
 
-Basic Issuu scraper, and since I'm not an expert at Python, this is a simple script and nothing advanced or special. It still does the trick though. :) Enter the url, and then enter the number of pages the book has. The program will then do the rest by downloading each image, compiling into a pdf, and outputting the urls and information in separate text files.
+## Objectif 
 
-## Usage
+**Issuu** platform share a lot of documents but some of them are not dowloadable. The problem for me is that I like to keep track of my readings and join notes with them. 
+This package a only one usage : **download some or all pages from the site and merge it into a nice pdf format.**
 
-    python3 ./issuu.py
 
-The script will prompt you to enter Issuu item's URL and page count.
+## Basic usage
+
+ 1. Run : `python3 ./main.py`;
+ 2. Input `URL`; 
+ 3. Input the `page count` you want ;
+
+## Features 
+
+ * Loading pages as `jpg` file in `./temp`folder;
+ * Metada saved in json format in `./out`folder;
+ * URL parsed saved in txt format in `./out` folder;
+ * Some logging for debugging ;
+ * Progress bar ;
 
 ## Requirements
 
-This script requires Python 3, and the packages urllib, Beautiful Soup, and wget. To install the required packages:
+### Python
 
-    pip install urllib3 beautifulsoup4 wget
+This script requires Python 3 and BeautifulSoup. To install the required packages:
+
+#### Conda users (For the exact configuration I uses)
+
+    conda env create -f ENV.yml
+    conda activate scrape_issuu
+
+#### Pip users 
+
+    pip3 install bs4
+
+### ImageMagick
 
 This package also requires the `convert` command from [ImageMagick](https://www.imagemagick.org/)
 
-If you're facing a :
+#### Known issues 
+
  * memory issues, go see [this github thread](https://github.com/ImageMagick/ImageMagick/issues/396);
  * authorization issue, go see this [askubuntu thread](https://askubuntu.com/questions/1081895/trouble-with-batch-conversion-of-png-to-pdf-using-convert)
 
 ## Credits
-This script was inspired and is based on the Ruby script from pietrop: https://github.com/pietrop/issuu.com-downloader as well as dkl3's original python script: https://github.com/dkl3/py-issuu-scrape
+
+This package is **mainly a refactoring**s of https://github.com/dkl3/py-issuu-scrape . Thanks dude :). 
+
+dkl3 was inspired by the Ruby script from pietrop: https://github.com/pietrop/issuu.com-downloader as well as dkl3's original python script: https://github.com/dkl3/py-issuu-scrape
